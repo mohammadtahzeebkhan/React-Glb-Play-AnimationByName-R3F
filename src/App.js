@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from '@react-three/drei';
+import Scene from "./Model1";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Canvas style={{height:"100vh"}}>
+          <ambientLight intensity={3}/>
+          <OrbitControls/>
+          <ambientLight intensity={0.5} />
+          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+          <Scene />
+      </Canvas>
   );
-}
+};
 
 export default App;
